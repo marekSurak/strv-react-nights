@@ -10,6 +10,18 @@
     "format": "prettier --write '*/**/*.{js, css, md, json}'",
     "lint:js": "eslint . --fix"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -23,9 +35,11 @@
     ]
   },
   "devDependencies": {
-    "prettier": "^2.0.5",
     "@strv/eslint-config-react": "^3.1.2",
-    "eslint-config-prettier": "^6.11.0"
+    "eslint-config-prettier": "^6.11.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
