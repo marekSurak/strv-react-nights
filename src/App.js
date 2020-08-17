@@ -36,7 +36,7 @@ function App() {
       setLoading(false)
     }
 
-    getProducts()
+    getProducts(test)
   })
 
   return (
