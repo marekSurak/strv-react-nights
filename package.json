@@ -7,10 +7,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "format":  "prettier --write '*/**/*.{js, css, md, json}'"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "format": "prettier --write '*/**/*.{js, css, md, json}'",
+    "lint:js": "eslint . --fix"
   },
   "browserslist": {
     "production": [
@@ -25,7 +23,9 @@
     ]
   },
   "devDependencies": {
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "@strv/eslint-config-react": "^3.1.2",
+    "eslint-config-prettier": "^6.11.0"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
