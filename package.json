@@ -8,7 +8,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier --write '*/**/*.{js, css, md, json}'",
-    "lint:js": "eslint . --fix"
+    "lint:js": "eslint . --fix",
+    "lint:css": "stylelint 'src/**/*.js'"
   },
   "husky": {
     "hooks": {
@@ -18,7 +19,8 @@
   "lint-staged": {
     "*.js": [
       "prettier --write",
-      "eslint --fix"
+      "eslint --fix",
+      "stylelint"
     ]
   },
   "browserslist": {
@@ -35,10 +37,12 @@
   },
   "devDependencies": {
     "@strv/eslint-config-react": "^3.1.2",
+    "@strv/stylelint-config-styled-components": "^1.1.1",
     "eslint-config-prettier": "^6.11.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "stylelint": "^13.6.1"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -47,6 +51,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "styled-components": "^5.1.1",
+    "styled-system": "^5.1.5"
   }
 }

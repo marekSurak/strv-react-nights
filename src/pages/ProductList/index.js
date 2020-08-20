@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { getProducts } from '../../api/products/getProducts'
-import { Link } from 'react-router-dom'
+import { Layout } from '../../components/Layout'
+import { H1, ListItem, List } from './styled'
+import { ProductItem } from '../../components/ProductItem'
 
 export const ProductList = () => {
   const [products, setProducts] = useState([])
@@ -18,26 +20,19 @@ export const ProductList = () => {
   }, [])
 
   return (
-    <>
-      <h1>Product list</h1>
+    <Layout>
+      <H1>Product list</H1>
       {isLoading ? (
         '...'
       ) : (
-        <ul>
+        <List>
           {products.map((product) => (
-            <li key={product.id}>
-              <Link to={`/products/${product.id}`}>
-                <h3>{product.attributes.name}</h3>
-                <img
-                  src={product.attributes.image_url}
-                  alt={product.attributes.name}
-                  style={{ height: '50px' }}
-                />
-              </Link>
-            </li>
+            <ListItem key={product.id}>
+              <ProductItem data={product} />
+            </ListItem>
           ))}
-        </ul>
+        </List>
       )}
-    </>
+    </Layout>
   )
 }

@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { getProduct } from '../../api/products/getProduct'
+import { Layout } from '../../components/Layout'
+import { Link } from 'react-router-dom'
+import { Content, Image, TextWrap, Code } from './styled'
+import { PrimaryButton } from '../../components/Button/Primary'
 
 export const ProductDetail = (props) => {
   const [product, setProduct] = useState({})
   const [isLoading, setLoading] = useState(true)
   const { match } = props
-  console.log(props)
+
+  const handleAddToChart = (e) => e.preventDefault()
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -19,22 +24,26 @@ export const ProductDetail = (props) => {
   }, [match.params.id])
 
   return (
-    <>
-      <h1>Product detail</h1>
+    <Layout>
       {isLoading ? (
         '...'
       ) : (
-        <div>
-          <h2>{product.attributes.name}</h2>
-          <h3>{product.attributes.code}</h3>
-          <span>{product.attributes.description}</span>
-          <img
-            src={product.attributes.image_url}
-            alt={product.attributes.name}
-            style={{ height: '200px' }}
-          />
-        </div>
+        <>
+          <Link to="/products">Back to list</Link>
+          <Content>
+            <h2>{product.attributes.name}</h2>
+            <Code>{product.attributes.code}</Code>
+            <Image
+              src={product.attributes.image_url}
+              alt={product.attributes.name}
+            />
+            <TextWrap>{product.attributes.description}</TextWrap>
+            <PrimaryButton type="button" onClick={handleAddToChart}>
+              Add to chart
+            </PrimaryButton>
+          </Content>
+        </>
       )}
-    </>
+    </Layout>
   )
 }
