@@ -17,3 +17,9 @@ export const List = styled.ul`
   margin: 0;
   padding: 0;
 `
+export const Head = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+`

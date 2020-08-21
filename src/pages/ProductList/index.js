@@ -1,19 +1,25 @@
 import React, { useEffect, useState } from 'react'
+
 import { getProducts } from '../../api/products/getProducts'
 import { Layout } from '../../components/Layout'
-import { H1, ListItem, List } from './styled'
 import { ProductItem } from '../../components/ProductItem'
+import { Cart } from '../../components/Cart'
+
+import { H1, ListItem, List, Head } from './styled'
+import { useDispatch, useSelector } from 'react-redux'
+import { LOAD_PRODUCTS } from '../../store/products/actions'
 
 export const ProductList = () => {
-  const [products, setProducts] = useState([])
   const [isLoading, setLoading] = useState(true)
+  const dispatch = useDispatch()
+  const products = useSelector((state) => state.products)
 
   useEffect(() => {
     const fetchProducts = async () => {
       const products = await getProducts()
 
-      setProducts(products)
       setLoading(false)
+      dispatch({ type: LOAD_PRODUCTS, payload: products })
     }
 
     fetchProducts()
@@ -21,7 +27,10 @@ export const ProductList = () => {
 
   return (
     <Layout>
-      <H1>Product list</H1>
+      <Head>
+        <H1>Product list</H1>
+        <Cart />
+      </Head>
       {isLoading ? (
         '...'
       ) : (
