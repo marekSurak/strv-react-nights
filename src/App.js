@@ -5,14 +5,19 @@ import { Provider } from 'react-redux'
 import { ProductList } from './pages/ProductList'
 import { ProductDetail } from './pages/ProductDetail'
 import { store } from './store'
+import { ROUTES } from './common/routes'
 
 export const App = () => {
   return (
     <Provider store={store}>
       <Router>
         <Switch>
-          <Route path={['/', '/products']} exact component={ProductList} />
-          <Route path="/products/:id" component={ProductDetail} />
+          <Route
+            path={['/', ROUTES.PRODUCT_LIST]}
+            exact
+            component={ProductList}
+          />
+          <Route path={ROUTES.PRODUCT_DETAIL} component={ProductDetail} />
         </Switch>
       </Router>
     </Provider>

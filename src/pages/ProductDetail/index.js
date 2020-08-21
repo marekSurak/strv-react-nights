@@ -4,6 +4,7 @@ import { Layout } from '../../components/Layout'
 import { Link } from 'react-router-dom'
 import { Content, Image, TextWrap, Code } from './styled'
 import { PrimaryButton } from '../../components/Button/Primary'
+import { ROUTES } from '../../common/routes'
 
 export const ProductDetail = (props) => {
   const [product, setProduct] = useState({})
@@ -29,7 +30,7 @@ export const ProductDetail = (props) => {
         '...'
       ) : (
         <>
-          <Link to="/products">Back to list</Link>
+          <Link to={ROUTES.PRODUCT_LIST}>Back to list</Link>
           <Content>
             <h2>{product.attributes.name}</h2>
             <Code>{product.attributes.code}</Code>

@@ -4,6 +4,7 @@ import { PrimaryButton } from '../Button/Primary'
 import { ADD_ITEM } from '../../store/cart/actions'
 
 import { useDispatch } from 'react-redux'
+import { ROUTES } from '../../common/routes'
 
 export const ProductItem = ({ data }) => {
   const { name, image_url } = data.attributes
@@ -16,7 +17,7 @@ export const ProductItem = ({ data }) => {
   }
 
   return (
-    <Item to={`/products/${data.id}`}>
+    <Item to={`${ROUTES.PRODUCT_LIST}/${data.id}`}>
       <Title>{name}</Title>
       <Img src={image_url} alt={name} />
       <PrimaryButton type="button" onClick={(e) => handleAddItem(data.id, e)}>

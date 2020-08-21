@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Items, StyledCart, Item } from './styled'
+import { Link } from 'react-router-dom'
+import { ROUTES } from '../../common/routes'
 
 export const Cart = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -27,7 +29,9 @@ export const Cart = () => {
     const { product, count } = item
     return (
       <Item key={product.id}>
-        <span>{product.attributes.name}</span>
+        <Link to={`${ROUTES.PRODUCT_LIST}/${product.id}`}>
+          {product.attributes.name}
+        </Link>
         <span>{count}</span>
       </Item>
     )
