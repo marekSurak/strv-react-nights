@@ -1,17 +1,17 @@
 import React, { useState, useRef } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Items, StyledCart, Item } from './styled'
 import { Link } from 'react-router-dom'
 import { ROUTES } from '../../common/routes'
 import useOutsideClick from '../../helpers/useOutsideClick'
+import { DELETE_ITEM } from '../../store/cart/actions'
 
 export const Cart = () => {
   const [isOpen, setIsOpen] = useState(false)
-
+  const dropdownRef = useRef()
+  const dispatch = useDispatch()
   const cart = useSelector((state) => state.cart)
   const products = useSelector((state) => state.products)
-
-  const dropdownRef = useRef()
 
   //detect click outside dropdown
   useOutsideClick(dropdownRef, () => {
@@ -34,6 +34,11 @@ export const Cart = () => {
 
   const handleCartOpen = () => setIsOpen(!isOpen)
 
+  const handleDeleteitem = (id, e) => {
+    e.preventDefault()
+    dispatch({ type: DELETE_ITEM, payload: id })
+  }
+
   const renderCartItems = () => cartItems.map((item) => renderItem(item))
   const renderItem = (item) => {
     const { product, count } = item
@@ -43,6 +48,9 @@ export const Cart = () => {
           {product.attributes.name}
         </Link>
         <span>{count}</span>
+        <button type="button" onClick={(e) => handleDeleteitem(product.id, e)}>
+          x
+        </button>
       </Item>
     )
   }
