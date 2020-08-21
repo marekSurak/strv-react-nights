@@ -5,7 +5,7 @@ import { Layout } from '../../components/Layout'
 import { ProductItem } from '../../components/ProductItem'
 import { Cart } from '../../components/Cart'
 
-import { H1, ListItem, List, Head } from './styled'
+import { ListItem, List } from './styled'
 import { useDispatch, useSelector } from 'react-redux'
 import { LOAD_PRODUCTS } from '../../store/products/actions'
 
@@ -27,10 +27,6 @@ export const ProductList = () => {
 
   return (
     <Layout>
-      <Head>
-        <H1>Product list</H1>
-        <Cart />
-      </Head>
       {isLoading ? (
         '...'
       ) : (

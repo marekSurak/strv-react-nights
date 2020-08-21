@@ -43,7 +43,7 @@ export const Cart = () => {
         type="button"
         onClick={handleCartOpen}
       >{`Cart (${cartItemsCount})`}</button>
-      {isOpen && <Items>{renderCartItems()}</Items>}
+      {isOpen && !!cartItemsCount && <Items>{renderCartItems()}</Items>}
     </StyledCart>
   )
 }

@@ -1,10 +1,6 @@
 import styled from 'styled-components'
 import { theme } from '../../common/theme'
 
-export const H1 = styled.h1`
-  color: ${theme.color.black};
-`
-
 export const ListItem = styled.li`
   list-style-type: none;
   margin: 1rem;
@@ -13,13 +9,7 @@ export const ListItem = styled.li`
 export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  margin: 0;
+  justify-content: start;
+  margin: 0 -1rem;
   padding: 0;
-`
-export const Head = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 2rem;
 `

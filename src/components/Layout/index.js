@@ -1,5 +1,12 @@
-import styled from 'styled-components'
+import React from 'react'
+import { Wrapper, Content } from './styled'
+import { Header } from '../Header'
 
-export const Layout = styled.div`
-  padding: 2rem;
-`
+export const Layout = ({ children }) => {
+  return (
+    <Wrapper>
+      <Header />
+      <Content>{children}</Content>
+    </Wrapper>
+  )
+}
