@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { getProducts } from '../../api/products/getProducts'
 import { Layout } from '../../components/Layout'
 import { ProductItem } from '../../components/ProductItem'
-import { Cart } from '../../components/Cart'
 
 import { ListItem, List } from './styled'
 import { useDispatch, useSelector } from 'react-redux'

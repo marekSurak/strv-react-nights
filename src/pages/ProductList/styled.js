@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { theme } from '../../common/theme'
 
 export const ListItem = styled.li`
   list-style-type: none;
@@ -9,7 +8,6 @@ export const ListItem = styled.li`
 export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  justify-content: start;
   margin: 0 -1rem;
   padding: 0;
 `

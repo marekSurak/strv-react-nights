@@ -5,13 +5,21 @@ import { Link } from 'react-router-dom'
 import { Content, Image, TextWrap, Code } from './styled'
 import { PrimaryButton } from '../../components/Button/Primary'
 import { ROUTES } from '../../common/routes'
+import { useDispatch } from 'react-redux'
+import { ADD_ITEM } from '../../store/cart/actions'
 
 export const ProductDetail = (props) => {
   const [product, setProduct] = useState({})
   const [isLoading, setLoading] = useState(true)
   const { match } = props
 
-  const handleAddToChart = (e) => e.preventDefault()
+  const dispatch = useDispatch()
+
+  const handleAddItem = (id, e) => {
+    e.preventDefault()
+
+    dispatch({ type: ADD_ITEM, payload: product })
+  }
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -39,7 +47,10 @@ export const ProductDetail = (props) => {
               alt={product.attributes.name}
             />
             <TextWrap>{product.attributes.description}</TextWrap>
-            <PrimaryButton type="button" onClick={handleAddToChart}>
+            <PrimaryButton
+              type="button"
+              onClick={(e) => handleAddItem(product.id, e)}
+            >
               Add to chart
             </PrimaryButton>
           </Content>
