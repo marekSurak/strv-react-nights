@@ -1,14 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { Items, StyledCart, Item } from './styled'
 import { Link } from 'react-router-dom'
 import { ROUTES } from '../../common/routes'
+import useOutsideClick from '../../helpers/useOutsideClick'
 
 export const Cart = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   const cart = useSelector((state) => state.cart)
   const products = useSelector((state) => state.products)
+
+  const dropdownRef = useRef()
+
+  //detect click outside dropdown
+  useOutsideClick(dropdownRef, () => {
+    if (isOpen) {
+      setIsOpen(false)
+    }
+  })
 
   const cartItemsCount = Object.values(cart).reduce(
     (accumulator, currentValue) => accumulator + currentValue,
@@ -43,7 +53,9 @@ export const Cart = () => {
         type="button"
         onClick={handleCartOpen}
       >{`Cart (${cartItemsCount})`}</button>
-      {isOpen && !!cartItemsCount && <Items>{renderCartItems()}</Items>}
+      {isOpen && !!cartItemsCount && (
+        <Items ref={dropdownRef}>{renderCartItems()}</Items>
+      )}
     </StyledCart>
   )
 }
