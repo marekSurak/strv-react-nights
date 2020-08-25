@@ -9,10 +9,19 @@ export const Header = () => {
     <S.Header>
       <S.H1>E-commerce</S.H1>
 
-      <div>
-        <Link to={ROUTES.SIGN_UP}>Sign up</Link>
-        <Cart />
-      </div>
+      <nav>
+        <S.List>
+          <S.Item>
+            <Link to={ROUTES.PRODUCT_LIST}>Home</Link>
+          </S.Item>
+          <S.Item>
+            <Link to={ROUTES.SIGN_UP}>Sign up</Link>
+          </S.Item>
+          <S.Item>
+            <Link to={ROUTES.CART}>Cart</Link>
+          </S.Item>
+        </S.List>
+      </nav>
     </S.Header>
   )
 }

@@ -12,3 +12,12 @@ export const H1 = styled.h1`
   color: ${theme.color.primary};
   margin: 0;
 `
+
+export const List = styled.ul`
+  list-style-type: none;
+`
+
+export const Item = styled.li`
+  display: inline-block;
+  margin: 0 0.5rem;
+`

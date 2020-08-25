@@ -7,6 +7,7 @@ import { ProductDetail } from './pages/ProductDetail'
 import { store } from './store'
 import { ROUTES } from './common/routes'
 import { SignUp } from './pages/SignUp'
+import { Cart } from './pages/Cart'
 
 export const App = () => {
   return (
@@ -20,6 +21,7 @@ export const App = () => {
           />
           <Route path={ROUTES.PRODUCT_DETAIL} component={ProductDetail} />
           <Route path={ROUTES.SIGN_UP} component={SignUp} />
+          <Route path={ROUTES.CART} component={Cart} />
         </Switch>
       </Router>
     </Provider>
