@@ -1,5 +1,4 @@
 import React from 'react'
-import { Cart } from '../Cart'
 import * as S from './styled'
 import { Link } from 'react-router-dom'
 import { ROUTES } from '../../common/routes'
@@ -15,10 +14,10 @@ export const Header = () => {
             <Link to={ROUTES.PRODUCT_LIST}>Home</Link>
           </S.Item>
           <S.Item>
-            <Link to={ROUTES.SIGN_UP}>Sign up</Link>
+            <Link to={ROUTES.CART}>Cart</Link>
           </S.Item>
           <S.Item>
-            <Link to={ROUTES.CART}>Cart</Link>
+            <Link to={ROUTES.SIGN_UP}>Sign up</Link>
           </S.Item>
         </S.List>
       </nav>
