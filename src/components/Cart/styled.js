@@ -3,8 +3,7 @@ import { theme } from '../../common/theme'
 
 export const StyledCart = styled.div`
   position: relative;
-  display: flex;
-  flex-direction: column;
+  display: inline-block;
 `
 
 export const Items = styled.ul`

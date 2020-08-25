@@ -6,6 +6,7 @@ import { ProductList } from './pages/ProductList'
 import { ProductDetail } from './pages/ProductDetail'
 import { store } from './store'
 import { ROUTES } from './common/routes'
+import { SignUp } from './pages/SignUp'
 
 export const App = () => {
   return (
@@ -18,6 +19,7 @@ export const App = () => {
             component={ProductList}
           />
           <Route path={ROUTES.PRODUCT_DETAIL} component={ProductDetail} />
+          <Route path={ROUTES.SIGN_UP} component={SignUp} />
         </Switch>
       </Router>
     </Provider>
