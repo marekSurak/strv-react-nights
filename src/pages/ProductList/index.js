@@ -26,6 +26,8 @@ export const ProductList = () => {
 
   return (
     <Layout>
+      <h2>Product list</h2>
+
       {isLoading ? (
         '...'
       ) : (

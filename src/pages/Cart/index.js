@@ -1,6 +1,5 @@
 import React from 'react'
 import { Layout } from '../../components/Layout'
-import { Link } from 'react-router-dom'
 import { ROUTES } from '../../common/routes'
 import { DELETE_ITEM } from '../../store/cart/actions'
 import { useSelector, useDispatch } from 'react-redux'

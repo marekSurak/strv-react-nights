@@ -42,12 +42,14 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
-    "stylelint": "^13.6.1"
+    "stylelint": "^13.6.1",
+    "stylelint-config-prettier": "^8.0.2"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "formik": "^2.1.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
@@ -55,6 +57,7 @@
     "react-scripts": "3.4.3",
     "redux": "^4.0.5",
     "styled-components": "^5.1.1",
-    "styled-system": "^5.1.5"
+    "styled-system": "^5.1.5",
+    "yup": "^0.29.3"
   }
 }
