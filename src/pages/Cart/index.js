@@ -4,6 +4,7 @@ import { ROUTES } from '../../common/routes'
 import { DELETE_ITEM } from '../../store/cart/actions'
 import { useSelector, useDispatch } from 'react-redux'
 import * as S from './styled'
+import { useGetCartCount } from '../../helpers/useGetCartCount'
 
 export const Cart = () => {
   const dispatch = useDispatch()
@@ -15,10 +16,7 @@ export const Cart = () => {
     dispatch({ type: DELETE_ITEM, payload: id })
   }
 
-  const cartItemsCount = Object.values(cart).reduce(
-    (accumulator, currentValue) => accumulator + currentValue,
-    0
-  )
+  const cartItemsCount = useGetCartCount()
 
   const cartItems = Object.keys(cart).map((itemId) => {
     return {
