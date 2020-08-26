@@ -13,7 +13,10 @@ export const Cart = () => {
 
   const handleDeleteitem = (id, e) => {
     e.preventDefault()
-    dispatch({ type: DELETE_ITEM, payload: id })
+
+    const modal = window.confirm('Do you want to delete item from cart?')
+
+    if (modal) dispatch({ type: DELETE_ITEM, payload: id })
   }
 
   const cartItemsCount = useGetCartCount()

@@ -10,10 +10,14 @@ export const ProductItem = ({ data }) => {
   const { name, image_url } = data.attributes
   const dispatch = useDispatch()
 
+  const alert = () => {}
+
   const handleAddItem = (id, e) => {
     e.preventDefault()
 
-    dispatch({ type: ADD_ITEM, payload: data })
+    const modal = window.confirm('Do you want to add item to cart?')
+
+    if (modal) dispatch({ type: ADD_ITEM, payload: data })
   }
 
   return (

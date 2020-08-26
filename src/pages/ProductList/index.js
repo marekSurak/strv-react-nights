@@ -7,6 +7,7 @@ import { ProductItem } from '../../components/ProductItem'
 import { ListItem, List } from './styled'
 import { useDispatch, useSelector } from 'react-redux'
 import { LOAD_PRODUCTS } from '../../store/products/actions'
+import { Loader } from '../../components/Loader'
 
 export const ProductList = () => {
   const [isLoading, setLoading] = useState(true)
@@ -29,7 +30,7 @@ export const ProductList = () => {
       <h2>Product list</h2>
 
       {isLoading ? (
-        '...'
+        <Loader />
       ) : (
         <List>
           {products.map((product) => (

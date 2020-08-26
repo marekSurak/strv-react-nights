@@ -7,6 +7,7 @@ import { PrimaryButton } from '../../components/Button/Primary'
 import { ROUTES } from '../../common/routes'
 import { useDispatch } from 'react-redux'
 import { ADD_ITEM } from '../../store/cart/actions'
+import { Loader } from '../../components/Loader'
 
 export const ProductDetail = (props) => {
   const [product, setProduct] = useState({})
@@ -35,7 +36,7 @@ export const ProductDetail = (props) => {
   return (
     <Layout>
       {isLoading ? (
-        '...'
+        <Loader />
       ) : (
         <>
           <Link to={ROUTES.PRODUCT_LIST}>Back to list</Link>
